@@ -1,7 +1,7 @@
-import { useState, useEffect, useCallback } from 'react'
+import { useState, useCallback } from 'react'
 import './App.css'
 
-const API_KEY = import.meta.env.VITE_NEWSDATA_API_KEY
+const API_KEY = import.meta.env.VITE_NEWS_API_KEY
 const API_URL = 'https://newsdata.io/api/1/latest'
 const TRANSLATE_URL = 'https://api.mymemory.translated.net/get'
 
@@ -75,11 +75,6 @@ function App() {
       setLoading(false)
     }
   }, [category, search, t.error])
-
-  useEffect(() => {
-    fetchNews()
-  }, [fetchNews])
-
   const toggleLang = () => {
     setLang(l => l === 'en' ? 'ro' : 'en')
   }
